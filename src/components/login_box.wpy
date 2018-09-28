@@ -13,7 +13,7 @@
     </view>
   </view>
 </template>
-<style lang="less" scoped>
+<style lang="scss" scoped>
   .login-box {
     position: fixed;
     z-index: 10;
@@ -26,33 +26,33 @@
     justify-content: center;
     background: rgba(0, 0, 0, 0.6);
     .modal-box {
-      border-radius: unit(5, rpx);
+      border-radius: 5rpx;
       overflow: hidden;
       text-align: center;
       background: #FFF;
-      width: unit(600, rpx);
+      width: 600rpx;
       .login-content {
-        padding: unit(30, rpx);
-        font-size: unit(36, rpx);
+        padding: 30rpx;
+        font-size: 36rpx;
         .login-cont {
           color: #999;
-          font-size: unit(28, rpx);
-          margin-top: unit(10, rpx);
+          font-size: 28rpx;
+          margin-top: 10rpx;
         }
       }
       .login-btns {
         display: flex;
-        border-top: unit(1, rpx) solid #E8E8E8;
+        border-top: 1rpx solid #E8E8E8;
         .login-btn {
-          height: unit(88, rpx);
-          line-height: unit(88, rpx);
+          height: 88rpx;
+          line-height: 88rpx;
           border-radius: 0;
           border: 0;
           flex: 1;
-          font-size: unit(32, rpx);
+          font-size: 32rpx;
           color: #51AF51;
           &:first-child {
-            border-right: unit(1, rpx) solid #E8E8E8;
+            border-right: 1rpx solid #E8E8E8;
           }
         }
       }

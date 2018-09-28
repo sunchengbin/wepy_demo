@@ -3,3 +3,4 @@ dist
 .DS_Store
 .wepycache
 yarn.lock
+package-lock.json

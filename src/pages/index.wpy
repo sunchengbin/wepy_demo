@@ -1,35 +1,18 @@
-<style lang="less">
-  .userinfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .userinfo-avatar {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-  }
-
-  .userinfo-nickname {
-    color: #aaa;
-  }
-</style>
 <template>
   <view class="container">
-    <view @tap="likeFn">赞</view>
+    <view class="like" @tap="likeFn">赞</view>
     <LoginBox :shown.sync="showLoginBox"></LoginBox>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Utils from '@/libs/utils'
   import {
     Apis,
     Http,
-    Login
-  } from '@/libs/interface'
+    Login,
+    Utils
+  } from 'libs/interface'
   import LoginBox from 'components/login_box'
   import CommonMixins from 'mixins_common'
   export default class Index extends wepy.page {
@@ -72,3 +55,14 @@
     }
   }
 </script>
+<style lang="scss" scoped>
+  @import '../css/base.scss';
+  .like {
+    width: 80rpx;
+    height: 80rpx;
+    text-align: center;
+    background-color: $redBgColor;
+    line-height: 80rpx;
+    color: $whiteColor;
+  }
+</style>

@@ -41,6 +41,8 @@ $ npm run prod
         ├── http.js http请求方法封装
         ├── interface.js 调用聚合、方便引用
         └── utils.js 工具函数封装
+    ├── img 图标集合
+    └── css 样式集合
 └── app.wpy 小程序入口，全局配置，对应小程序app.json
 ```
 ## 项目环境切换
@@ -48,3 +50,10 @@ $ npm run prod
 项目启动后手动切换
 libs/hosts.js中
 Env的值
+
+## 单位使用说明
+
+可以根据750px设计稿中的直接写样式
+例如：
+设计稿中宽度80px
+width: 80rpx;

@@ -1,4 +1,4 @@
-<style lang="less">
+<style lang="scss">
 .container {
   height: 100%;
   display: flex;
@@ -16,13 +16,31 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/index'
+      'pages/index',
+      'pages/profile'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      selectedColor: '#E2001E',
+      list: [
+        {
+          pagePath: 'pages/index',
+          text: '首页',
+          iconPath: 'img/tab-daohang-a.png',
+          selectedIconPath: 'img/tab-daohang-d.png',
+        },
+        {
+          pagePath: 'pages/profile',
+          text: '我',
+          iconPath: 'img/tab-wode-a.png',
+          selectedIconPath: 'img/tab-wode-d.png',
+        }
+      ]
     }
   }
 

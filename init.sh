@@ -9,13 +9,22 @@ npmcheck() {
 	}
 }
 
+yarncheck() {
+	if type yarn >/dev/null 2>&1; then
+		echo 'exists yarn'
+	else
+		echo 'no exists yarn'
+		brew install yarn
+	fi
+	yarn
+}
+
 rm -rf dist
 rm -rf node_modules
 
 mkdir dist
-# cp wept.json dist/wept.json
 
 npmcheck wepy-cli
 npmcheck wept
 
-yarn
+yarncheck

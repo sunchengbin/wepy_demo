@@ -2,17 +2,17 @@ import wepy from 'wepy'
 
 export default class testMixin extends wepy.mixin {
   data = {
-    mixin: 'This is mixin data.'
+    // login_box组件中显示隐藏控制参数
+    showLoginBox: false,
+    loginSuccess: null,
+    loginFail: null
   }
   methods = {
-    tap () {
-      this.mixin = 'mixin data was changed'
-      console.log('mixin method tap')
-    }
   }
 
   onShow() {
     console.log('mixin onShow')
+    console.log('这里可以加入统计相关代码')
   }
 
   onLoad() {

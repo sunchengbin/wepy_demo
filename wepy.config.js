@@ -14,7 +14,9 @@ module.exports = {
   },
   resolve: {
     alias: {
-      counter: path.join(__dirname, 'src/components/counter'),
+      'mixins_common': path.join(__dirname, 'src/mixins/common'),
+      'libs': path.join(__dirname, 'src/libs'),
+      'components': path.join(__dirname, 'src/components'),
       '@': path.join(__dirname, 'src')
     },
     aliasFields: ['wepy', 'weapp'],
@@ -24,9 +26,6 @@ module.exports = {
     less: {
       compress: prod
     },
-    /*sass: {
-      outputStyle: 'compressed'
-    },*/
     babel: {
       sourceMap: true,
       presets: [
@@ -48,10 +47,8 @@ module.exports = {
 }
 
 if (prod) {
-
-  // 压缩sass
-  // module.exports.compilers['sass'] = {outputStyle: 'compressed'}
-
+  // 压缩less
+  module.exports.compilers['less'] = {compress: true}
   // 压缩js
   module.exports.plugins = {
     uglifyjs: {

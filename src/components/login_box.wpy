@@ -1,0 +1,122 @@
+<template>
+  <view wx:if="{{shown}}" class="login-box">
+    <view class="modal-box">
+      <view class="login-content">
+        授权登录
+        <view class="login-cont">请先进行微信授权登录</view>
+      </view>
+      <view class="login-btns">
+        <button class="login-btn" open-type="getUserInfo" plain="true" bindgetuserinfo="getUserInfo">
+          <view @tap="hideBox">确定</view>
+        </button>
+      </view>
+    </view>
+  </view>
+</template>
+<style lang="less" scoped>
+  .login-box {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    .modal-box {
+      border-radius: unit(5, rpx);
+      overflow: hidden;
+      text-align: center;
+      background: #FFF;
+      width: unit(600, rpx);
+      .login-content {
+        padding: unit(30, rpx);
+        font-size: unit(36, rpx);
+        .login-cont {
+          color: #999;
+          font-size: unit(28, rpx);
+          margin-top: unit(10, rpx);
+        }
+      }
+      .login-btns {
+        display: flex;
+        border-top: unit(1, rpx) solid #E8E8E8;
+        .login-btn {
+          height: unit(88, rpx);
+          line-height: unit(88, rpx);
+          border-radius: 0;
+          border: 0;
+          flex: 1;
+          font-size: unit(32, rpx);
+          color: #51AF51;
+          &:first-child {
+            border-right: unit(1, rpx) solid #E8E8E8;
+          }
+        }
+      }
+    }
+  }
+</style>
+<script>
+import wepy from 'wepy'
+import login from 'libs/login'
+export default class LoginBox extends wepy.component {
+  props = {
+    shown: {
+      type: Boolean,
+      default: false,
+      twoWay: true
+    }
+  }
+
+  data = {
+  }
+
+  hideBox() {
+    this.shown = false
+    this.$apply()
+  }
+
+  showBox() {
+    this.shown = true
+    this.$apply()
+  }
+
+  methods = {
+    async getUserInfo(e) {
+      // 授权登录窗口允许或者拒绝操作回调
+      this.hideBox()
+      if (e.detail.userInfo) {
+        login.toLogin(e.detail, this.$parent.loginSuccess)
+      } else {
+        this.showBox()
+      }
+    }
+  }
+
+  // 进入页面必需授权的需求直接在onLoad中执行就好
+  loginAuth() {
+    const _this = this
+    // 查看是否授权
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+        } else {
+          _this.showBox()
+        }
+      },
+      fail(res) {
+        _this.showBox()
+      }
+    })
+  }
+
+  onLoad(e) {
+    // this.loginAuth()
+  }
+
+}
+</script>

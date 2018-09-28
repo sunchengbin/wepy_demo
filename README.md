@@ -30,12 +30,11 @@ $ npm run prod
 ```
 ## 项目目录
 ```
-.
 ├── src
     ├── components 组件
     ├── minxins 混合模式
     ├── pages 页面
-    ├── libs
+    └── libs
         ├── apis.js 接口请求url聚合
         ├── hosts.js 接口域名聚合，可以通过手动切换Env值来切换接口环境
         ├── http.js http请求方法封装
@@ -47,13 +46,12 @@ $ npm run prod
 ```
 ## 项目环境切换
 
-项目启动后手动切换
-libs/hosts.js中
-Env的值
+项目启动后手动切换，libs/hosts.js中Env的值。
 
 ## 单位使用说明
 
-可以根据750px设计稿中的直接写样式
-例如：
-设计稿中宽度80px
+可以根据750px设计稿中的直接写样式，例如：设计稿中宽度80px。
+```
 width: 80rpx;
+
+```
